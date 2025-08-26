@@ -1,0 +1,72 @@
+{
+  "ui_screens": [
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COSGN00.bms",
+      "screen_name": "Signon Screen"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COMEN01.bms",
+      "screen_name": "Main Menu"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COADM01.bms",
+      "screen_name": "Admin Menu"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COACTVW.bms",
+      "screen_name": "Account View"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COACTUP.bms",
+      "screen_name": "Account Update"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COCRDLI.bms",
+      "screen_name": "Credit Card List"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COCRDSL.bms",
+      "screen_name": "Credit Card Detail"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COCRDUP.bms",
+      "screen_name": "Credit Card Update"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COTRN00.bms",
+      "screen_name": "Transaction List"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COTRN01.bms",
+      "screen_name": "Transaction View"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COTRN02.bms",
+      "screen_name": "Transaction Add"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/CORPT00.bms",
+      "screen_name": "Reports"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COBIL00.bms",
+      "screen_name": "Bill Payment"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COUSR00.bms",
+      "screen_name": "Users List"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COUSR01.bms",
+      "screen_name": "Add User"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COUSR02.bms",
+      "screen_name": "Update User"
+    },
+    {
+      "file_path": "/Users/hugoseabra/Library/CloudStorage/Dropbox/DevProjects/Crowdbotics/repos/code2spec/kenobi-c2s/storage/centene/aws-mainframe-modernization-carddemo/app/bms/COUSR03.bms",
+      "screen_name": "Delete User"
+    }
+  ]
+}

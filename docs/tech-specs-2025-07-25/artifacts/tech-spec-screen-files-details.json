@@ -1,0 +1,796 @@
+[
+  {
+    "name": "Signon Screen",
+    "description": "This screen is used for signing on to the system. It allows the user to enter a transaction name and provides options to proceed with the sign-on or exit the application.",
+    "fields": [
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Field to input the transaction name for the sign-on process.",
+        "required": true,
+        "validation": "Must be a valid transaction name; no specific format constraints provided."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Sign-on",
+        "description": "Proceeds with the sign-on process using the entered transaction name.",
+        "type": "form submit",
+        "outcome": "The user is signed on to the system and navigated to the next screen or process."
+      },
+      {
+        "name": "Exit",
+        "description": "Exits the sign-on screen and terminates the session.",
+        "type": "button",
+        "outcome": "The user is returned to the previous screen or exits the application."
+      }
+    ]
+  },
+  {
+    "name": "Main Menu",
+    "description": "This screen serves as the main menu for the application, allowing users to navigate to different functionalities by entering a transaction name.",
+    "fields": [
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Field to input the transaction name for navigation.",
+        "required": true,
+        "validation": "Must be a valid transaction name; maximum length of 4 characters."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Enter transaction name",
+        "description": "Allows the user to navigate to a specific transaction by entering its name in the TRNNAME field.",
+        "type": "form submit",
+        "outcome": "The application processes the input and navigates to the corresponding transaction screen."
+      }
+    ]
+  },
+  {
+    "name": "Admin Menu Screen",
+    "description": "This screen serves as the main administrative menu for the application, allowing users to enter transaction names and select options for further actions.",
+    "fields": [
+      {
+        "name": "Tran",
+        "type": "string",
+        "description": "Label indicating the transaction name field.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Field for entering the transaction name.",
+        "required": true,
+        "validation": "Must be a valid transaction name."
+      },
+      {
+        "name": "OPTN012",
+        "type": "string",
+        "description": "Field for displaying or entering additional options.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "OPTION",
+        "type": "number",
+        "description": "Field for entering a numeric option to select an action.",
+        "required": true,
+        "validation": "Must be a numeric value, right-justified, and zero-padded."
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Field for displaying error messages.",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Enter option in OPTION field",
+        "description": "Allows the user to input a numeric option to proceed with a specific action.",
+        "type": "form submit",
+        "outcome": "The selected option is processed, and the corresponding action is executed."
+      }
+    ]
+  },
+  {
+    "name": "Account View",
+    "description": "This screen is used to display and input account-related information, including account number, status, and opening date. It allows users to view and update specific account details.",
+    "fields": [
+      {
+        "name": "ACCTSID",
+        "type": "string",
+        "description": "Account Number field for entering the account identifier.",
+        "required": true,
+        "validation": "MUSTFILL"
+      },
+      {
+        "name": "ACSTTUS",
+        "type": "string",
+        "description": "Active Status field for selecting whether the account is active (Y/N).",
+        "required": false,
+        "validation": null
+      },
+      {
+        "name": "ADTOPEN",
+        "type": "date",
+        "description": "Opened Date field for displaying the account's opening date.",
+        "required": false,
+        "validation": null
+      }
+    ],
+    "actions": [
+      {
+        "name": "Enter account number",
+        "description": "Allows the user to input the account number into the ACCTSID field.",
+        "type": "form input",
+        "outcome": "The account number is captured for further processing."
+      },
+      {
+        "name": "Select active status",
+        "description": "Allows the user to select whether the account is active (Y/N) in the ACSTTUS field.",
+        "type": "form input",
+        "outcome": "The active status is recorded for the account."
+      },
+      {
+        "name": "View opened date",
+        "description": "Displays the account's opening date in the ADTOPEN field.",
+        "type": "display",
+        "outcome": "The user can view the account's opening date."
+      }
+    ]
+  },
+  {
+    "name": "Account Update Screen",
+    "description": "This screen is used to update account details, including account number, active status, and opening date. It provides fields for data entry and options for processing or exiting the screen.",
+    "fields": [
+      {
+        "name": "ACCTSID",
+        "type": "string",
+        "description": "Account Number",
+        "required": true,
+        "validation": "Must be 11 characters long and filled"
+      },
+      {
+        "name": "ACSTTUS",
+        "type": "string",
+        "description": "Active Status (Y/N)",
+        "required": true,
+        "validation": "Must be a single character (Y or N)"
+      },
+      {
+        "name": "OPNYEAR",
+        "type": "number",
+        "description": "Opening Year",
+        "required": true,
+        "validation": "Must be a 4-digit year"
+      },
+      {
+        "name": "OPNMON",
+        "type": "number",
+        "description": "Opening Month",
+        "required": true,
+        "validation": "Must be a valid month (1-12)"
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Error Message Display",
+        "required": false,
+        "validation": "Displays error messages if any issues occur"
+      }
+    ],
+    "actions": [
+      {
+        "name": "ENTER=Process",
+        "description": "Processes the entered data and updates the account details",
+        "type": "form submit",
+        "outcome": "Validates and saves the data; displays success or error messages"
+      },
+      {
+        "name": "F3=Exit",
+        "description": "Exits the screen without saving changes",
+        "type": "button",
+        "outcome": "Returns to the previous screen or menu"
+      },
+      {
+        "name": "F5=Save",
+        "description": "Saves the entered data",
+        "type": "button",
+        "outcome": "Saves the data and remains on the screen"
+      },
+      {
+        "name": "F12=Cancel",
+        "description": "Cancels the current operation and discards changes",
+        "type": "button",
+        "outcome": "Clears the entered data and resets the screen"
+      }
+    ]
+  },
+  {
+    "name": "Card Listing Screen",
+    "description": "This screen is used to display a list of credit cards and allows the user to input a transaction name for filtering or other purposes.",
+    "fields": [
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Field to input the transaction name for filtering or identifying specific operations.",
+        "required": true,
+        "validation": "Must be a string with a maximum length of 4 characters."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Input Transaction Name",
+        "description": "Allows the user to input a transaction name to filter or identify specific operations.",
+        "type": "form input",
+        "outcome": "The entered transaction name is used for further processing or filtering."
+      }
+    ]
+  },
+  {
+    "name": "Credit Card Detail Screen",
+    "description": "This screen is designed to capture and display details related to a credit card, including its activation status and expiry date. It allows users to input and view relevant information for managing credit card details.",
+    "fields": [
+      {
+        "name": "CRDSTCD",
+        "type": "string",
+        "description": "Indicates whether the card is active (Y/N).",
+        "required": true,
+        "validation": "Must be a single character: 'Y' for Yes or 'N' for No."
+      },
+      {
+        "name": "EXPMON",
+        "type": "number",
+        "description": "The expiry month of the credit card.",
+        "required": true,
+        "validation": "Must be a two-digit number between 01 and 12."
+      },
+      {
+        "name": "EXPYEAR",
+        "type": "number",
+        "description": "The expiry year of the credit card.",
+        "required": true,
+        "validation": "Must be a four-digit number representing the year."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Input Data",
+        "description": "Allows the user to input data into the fields for card activation status and expiry date.",
+        "type": "form input",
+        "outcome": "The entered data is captured and stored for further processing."
+      }
+    ]
+  },
+  {
+    "name": "Update Credit Card Details",
+    "description": "This screen is used to update credit card details, including account number, card number, and name on the card. It provides a user interface for entering and validating these details.",
+    "fields": [
+      {
+        "name": "Account Number",
+        "type": "string",
+        "description": "The account number associated with the credit card.",
+        "required": true,
+        "validation": "Must be 11 characters long and numeric."
+      },
+      {
+        "name": "Card Number",
+        "type": "string",
+        "description": "The credit card number to be updated.",
+        "required": true,
+        "validation": "Must be 16 characters long and numeric."
+      },
+      {
+        "name": "Name on Card",
+        "type": "string",
+        "description": "The name printed on the credit card.",
+        "required": true,
+        "validation": "Must not exceed 50 characters."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Enter Account Number",
+        "description": "Allows the user to input the account number.",
+        "type": "form input",
+        "outcome": "The account number is captured for further processing."
+      },
+      {
+        "name": "Enter Card Number",
+        "description": "Allows the user to input the credit card number.",
+        "type": "form input",
+        "outcome": "The card number is captured for further processing."
+      },
+      {
+        "name": "Enter Name on Card",
+        "description": "Allows the user to input the name on the credit card.",
+        "type": "form input",
+        "outcome": "The name on the card is captured for further processing."
+      }
+    ]
+  },
+  {
+    "name": "Transaction List",
+    "description": "This screen displays a list of transactions and allows the user to view details, navigate through the list, and handle errors. It is designed for managing and reviewing transaction data.",
+    "fields": [
+      {
+        "name": "SEL0001",
+        "type": "string",
+        "description": "Selection field for choosing a transaction from the list.",
+        "required": false,
+        "validation": "Must be a single character input."
+      },
+      {
+        "name": "TRNID01",
+        "type": "string",
+        "description": "Transaction ID field for displaying the unique identifier of a transaction.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "TDATE01",
+        "type": "date",
+        "description": "Transaction date field for displaying the date of the transaction.",
+        "required": false,
+        "validation": "Must be a valid date format."
+      },
+      {
+        "name": "TDESC01",
+        "type": "string",
+        "description": "Transaction description field for displaying details about the transaction.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "TAMT001",
+        "type": "number",
+        "description": "Transaction amount field for displaying the monetary value of the transaction.",
+        "required": false,
+        "validation": "Must be a valid numeric value."
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Error message field for displaying validation or system errors.",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Type 'S' to View Transaction Details",
+        "description": "Allows the user to view detailed information about a selected transaction.",
+        "type": "Input action",
+        "outcome": "Displays the details of the selected transaction."
+      },
+      {
+        "name": "Press ENTER to Continue",
+        "description": "Proceeds to the next step or screen in the workflow.",
+        "type": "Keyboard action",
+        "outcome": "Advances to the next screen or process."
+      },
+      {
+        "name": "Press F3 to Go Back",
+        "description": "Navigates back to the previous screen.",
+        "type": "Keyboard action",
+        "outcome": "Returns to the previous screen."
+      },
+      {
+        "name": "Press F7 to Move Backward",
+        "description": "Scrolls backward through the transaction list.",
+        "type": "Keyboard action",
+        "outcome": "Displays the previous set of transactions in the list."
+      },
+      {
+        "name": "Press F8 to Move Forward",
+        "description": "Scrolls forward through the transaction list.",
+        "type": "Keyboard action",
+        "outcome": "Displays the next set of transactions in the list."
+      }
+    ]
+  },
+  {
+    "name": "Transaction View",
+    "description": "This screen is used to input and display transaction details, including the transaction name, date, program name, and titles. It serves as a user interface for managing and viewing transaction-related information.",
+    "fields": [
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Field for entering the transaction name.",
+        "required": true,
+        "validation": "Maximum length of 4 characters."
+      },
+      {
+        "name": "TITLE01",
+        "type": "string",
+        "description": "Display field for the first title.",
+        "required": false,
+        "validation": "Maximum length of 40 characters."
+      },
+      {
+        "name": "CURDATE",
+        "type": "date",
+        "description": "Field for displaying the current date.",
+        "required": false,
+        "validation": "Format must be 'mm/dd/yy'."
+      },
+      {
+        "name": "PGMNAME",
+        "type": "string",
+        "description": "Field for displaying the program name.",
+        "required": false,
+        "validation": "Maximum length of 8 characters."
+      },
+      {
+        "name": "TITLE02",
+        "type": "string",
+        "description": "Display field for the second title.",
+        "required": false,
+        "validation": "Maximum length of 40 characters."
+      }
+    ],
+    "actions": []
+  },
+  {
+    "name": "Transaction Add Screen",
+    "description": "This screen is used for adding a new transaction. It allows the user to input an account number and submit the transaction for processing.",
+    "fields": [
+      {
+        "name": "ACTIDIN",
+        "type": "string",
+        "description": "Field to input the account number for the transaction.",
+        "required": true,
+        "validation": "Must be a valid account number format."
+      },
+      {
+        "name": "CURTIME",
+        "type": "string",
+        "description": "Displays the current time in the format 'hh:mm:ss'.",
+        "required": false,
+        "validation": "Read-only field."
+      },
+      {
+        "name": "TITLE02",
+        "type": "string",
+        "description": "Displays the title or header for the screen.",
+        "required": false,
+        "validation": "Read-only field."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Add Transaction",
+        "description": "Submits the entered account number and processes the transaction.",
+        "type": "button",
+        "outcome": "The transaction is added to the system and the user is notified of the result."
+      }
+    ]
+  },
+  {
+    "name": "Report Confirmation Screen",
+    "description": "This screen is used to confirm the submission of a report for printing. It allows the user to provide confirmation and displays error messages if necessary.",
+    "fields": [
+      {
+        "name": "CONFIRM",
+        "type": "string",
+        "description": "Field for user to confirm the action by entering 'Y' for Yes or 'N' for No.",
+        "required": true,
+        "validation": "Must be 'Y' or 'N'."
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Field to display error messages if the user input is invalid or if there is an issue with the submission.",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "ENTER",
+        "description": "Submits the confirmation input provided by the user.",
+        "type": "form submit",
+        "outcome": "Proceeds with the report submission if the input is valid."
+      },
+      {
+        "name": "F3",
+        "description": "Navigates back to the previous screen.",
+        "type": "navigation",
+        "outcome": "Returns the user to the previous screen without submitting the report."
+      }
+    ]
+  },
+  {
+    "name": "Bill Payment Screen",
+    "description": "This screen is used for processing bill payments, allowing users to input payment details and confirm transactions.",
+    "fields": [
+      {
+        "name": "Account Number",
+        "type": "string",
+        "description": "The account number to which the bill payment is being made.",
+        "required": true,
+        "validation": "Must be a valid account number format."
+      },
+      {
+        "name": "Payment Amount",
+        "type": "number",
+        "description": "The amount to be paid for the bill.",
+        "required": true,
+        "validation": "Must be a positive number with up to two decimal places."
+      },
+      {
+        "name": "Payment Date",
+        "type": "date",
+        "description": "The date on which the payment is to be processed.",
+        "required": true,
+        "validation": "Must be a valid date in the format MM/DD/YYYY."
+      },
+      {
+        "name": "Payment Method",
+        "type": "string",
+        "description": "The method of payment (e.g., credit card, bank transfer).",
+        "required": true,
+        "validation": "Must be one of the predefined payment methods."
+      },
+      {
+        "name": "Confirmation Message",
+        "type": "string",
+        "description": "A message displayed to confirm the payment details before submission.",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Submit Payment",
+        "description": "Submits the payment details for processing.",
+        "type": "button",
+        "outcome": "The payment is processed, and a confirmation message is displayed."
+      },
+      {
+        "name": "Cancel",
+        "description": "Cancels the payment process and returns to the previous screen.",
+        "type": "button",
+        "outcome": "The user is returned to the previous screen without saving any changes."
+      },
+      {
+        "name": "Clear Fields",
+        "description": "Clears all input fields on the screen.",
+        "type": "button",
+        "outcome": "All input fields are reset to their default state."
+      }
+    ]
+  },
+  {
+    "name": "Users List Screen",
+    "description": "This screen is used to display a list of users and allows the user to perform actions such as updating or deleting a user, navigating through the list, and continuing to the next step.",
+    "fields": [
+      {
+        "name": "PAGENUM",
+        "type": "string",
+        "description": "Displays the current page number of the user list.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "USRIDIN",
+        "type": "string",
+        "description": "Field for entering the User ID to search for a specific user.",
+        "required": true,
+        "validation": "Must be 8 characters long"
+      },
+      {
+        "name": "SEL",
+        "type": "string",
+        "description": "Selection field for choosing a user from the list.",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Displays error messages or instructions for the user.",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "ENTER",
+        "description": "Confirms the current action or selection.",
+        "type": "Form submit",
+        "outcome": "Proceeds to the next step or performs the selected action."
+      },
+      {
+        "name": "F3",
+        "description": "Navigates back to the previous screen.",
+        "type": "Button",
+        "outcome": "Returns to the previous screen without saving changes."
+      },
+      {
+        "name": "F7",
+        "description": "Scrolls backward through the user list.",
+        "type": "Button",
+        "outcome": "Displays the previous set of users in the list."
+      },
+      {
+        "name": "F8",
+        "description": "Scrolls forward through the user list.",
+        "type": "Button",
+        "outcome": "Displays the next set of users in the list."
+      },
+      {
+        "name": "Update User",
+        "description": "Updates the details of a selected user.",
+        "type": "Action triggered by typing 'U' in the SEL field.",
+        "outcome": "Opens a form to update the selected user's details."
+      },
+      {
+        "name": "Delete User",
+        "description": "Deletes a selected user from the list.",
+        "type": "Action triggered by typing 'D' in the SEL field.",
+        "outcome": "Removes the selected user from the list after confirmation."
+      }
+    ]
+  },
+  {
+    "name": "Add User Screen",
+    "description": "This screen allows the user to add a new user by entering the required details such as First Name and performing the Add User action.",
+    "fields": [
+      {
+        "name": "First Name",
+        "type": "string",
+        "description": "Field to input the first name of the user being added.",
+        "required": true,
+        "validation": "Must not be empty."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Add User",
+        "description": "Submits the entered First Name to add a new user.",
+        "type": "button",
+        "outcome": "The system processes the input and adds the user if the input is valid."
+      }
+    ]
+  },
+  {
+    "name": "Update User Screen",
+    "description": "This screen is used to update user information in the system. It allows the user to input and modify details such as User ID and First Name, and provides feedback on the success or failure of the operation.",
+    "fields": [
+      {
+        "name": "USRIDIN",
+        "type": "string",
+        "description": "Field for entering the User ID to be updated.",
+        "required": true,
+        "validation": "Must not be empty. Length: 8 characters."
+      },
+      {
+        "name": "FNAME",
+        "type": "string",
+        "description": "Field for entering the First Name of the user.",
+        "required": true,
+        "validation": "Must not be empty. Length: 20 characters."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Enter User ID",
+        "description": "Allows the user to input the User ID for the update operation.",
+        "type": "input",
+        "outcome": "The User ID is captured for processing."
+      },
+      {
+        "name": "Enter First Name",
+        "description": "Allows the user to input the First Name for the update operation.",
+        "type": "input",
+        "outcome": "The First Name is captured for processing."
+      },
+      {
+        "name": "SEND-USRUPD-SCREEN",
+        "description": "Submits the updated user information for processing.",
+        "type": "form submit",
+        "outcome": "The system processes the update and displays a success or error message."
+      }
+    ]
+  },
+  {
+    "name": "Delete User Screen",
+    "description": "This screen is used to delete a user by capturing user details such as User ID, First Name, Last Name, and User Type. It also displays relevant prompts, messages, and allows navigation and actions related to user deletion.",
+    "fields": [
+      {
+        "name": "TRNNAME",
+        "type": "string",
+        "description": "Transaction name displayed on the screen",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "CURDATE",
+        "type": "date",
+        "description": "Current date displayed in mm/dd/yy format",
+        "required": false,
+        "validation": "Must be a valid date"
+      },
+      {
+        "name": "PGMNAME",
+        "type": "string",
+        "description": "Program name displayed on the screen",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "CURTIME",
+        "type": "time",
+        "description": "Current time displayed in hh:mm:ss format",
+        "required": false,
+        "validation": "Must be a valid time"
+      },
+      {
+        "name": "USRIDIN",
+        "type": "string",
+        "description": "User ID input field for identifying the user to be deleted",
+        "required": true,
+        "validation": "Must not be empty; maximum length of 8 characters"
+      },
+      {
+        "name": "FNAME",
+        "type": "string",
+        "description": "First Name of the user to be deleted",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "LNAME",
+        "type": "string",
+        "description": "Last Name of the user to be deleted",
+        "required": false,
+        "validation": "None"
+      },
+      {
+        "name": "USRTYPE",
+        "type": "string",
+        "description": "User Type of the user to be deleted (e.g., Admin or User)",
+        "required": false,
+        "validation": "Must be one of the predefined values (A=Admin, U=User)"
+      },
+      {
+        "name": "ERRMSG",
+        "type": "string",
+        "description": "Error message displayed in case of validation or operation failure",
+        "required": false,
+        "validation": "None"
+      }
+    ],
+    "actions": [
+      {
+        "name": "ENTER=Fetch",
+        "description": "Fetches the details of the user based on the entered User ID",
+        "type": "button",
+        "outcome": "Displays the user details if the User ID is valid; otherwise, shows an error message"
+      },
+      {
+        "name": "F3=Back",
+        "description": "Navigates back to the previous screen",
+        "type": "button",
+        "outcome": "Returns to the previous screen without making any changes"
+      },
+      {
+        "name": "F4=Clear",
+        "description": "Clears all input fields on the screen",
+        "type": "button",
+        "outcome": "Resets all fields to their initial state"
+      },
+      {
+        "name": "F5=Delete",
+        "description": "Deletes the user based on the entered details",
+        "type": "button",
+        "outcome": "Deletes the user if the details are valid; otherwise, displays an error message"
+      }
+    ]
+  }
+]

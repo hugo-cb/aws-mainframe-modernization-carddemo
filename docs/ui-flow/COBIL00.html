@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>COBIL00.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="bill-payment--pay-balance-in-full-user">Bill Payment — Pay Balance in Full (User)</h1>
+<ul>
+<li>Transaction: <code>CB00</code></li>
+<li>Program: <code>COBIL00C</code></li>
+<li>Mapset: <code>COBIL00</code></li>
+<li>Map: <code>COBIL0A</code></li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>This screen lets a user pay the full outstanding account balance. User enters an Account ID, the program retrieves the current balance, and upon confirmation (Y), creates a new transaction and updates the account balance to reflect the payment.</p>
+<p>Key behaviors:</p>
+<ul>
+<li>On first entry, if <code>CDEMO-CB00-TRN-SELECTED</code> is present (from a previous screen), the program pre-fills <code>ACTIDIN</code> and proceeds as if ENTER was pressed.</li>
+<li>PF3 returns to the previous program (<code>CDEMO-FROM-PROGRAM</code>) or Main Menu (<code>COMEN01C</code>) if none.</li>
+<li>PF4 clears the screen.</li>
+</ul>
+<h2 id="diagrams">Diagrams</h2>
+<p>Application Flow (Mermaid)</p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    direction TB
+
+    MM[Main Menu<br/>CM00 / COMEN01C]
+    BP[Bill Payment<br/>CB00 / COBIL00C]
+    PF3[PF3 - Back]
+    PF4[PF4 - Clear]
+    Return[Return to Main Menu or Previous]
+
+    subgraph Input
+        A1[Enter Account ID]
+        A2[Confirm Y/N]
+    end
+
+    subgraph Lookup
+        L1[Read ACCTDAT by Account ID]
+        L2[Display Current Balance]
+    end
+
+    subgraph Payment
+        P1[If Y Confirm]
+        P2[Read CXACAIX by Account ID]
+        P3[Get last TRANSACT ID - STARTBR/READPREV/ENDBR]
+        P4[Create new TRAN record]
+        P5[WRITE TRANSACT]
+        P6[REWRITE ACCTDAT with updated balance]
+        Done[Success message with Transaction ID]
+    end
+
+    MM --> BP
+    BP -->|ENTER| Input
+
+    Input -->|Acct ID blank| Err1[Error: Acct ID can NOT be empty]
+    Input -->|Acct ID given| Lookup
+    Lookup -->|NOTFND/ERROR| Err2[Error: Account ID NOT found or lookup error]
+    Lookup --> L2
+
+    L2 -->|Balance <= 0| Err3[You have nothing to pay]
+    L2 --> A2
+
+    A2 -->|Y| Payment
+    A2 -->|N| Clr1[Clear Screen]
+    A2 -->|Blank| Lookup
+    A2 -->|Other| Err4[Invalid value. Valid values are Y/N]
+
+    Payment --> Done
+
+    BP -->|PF3| PF3 --> Return
+    BP -->|PF4| PF4 --> Clr1
+</div></code></pre>
+<h2 id="program-map-and-transaction">Program, Map, and Transaction</h2>
+<ul>
+<li>Transaction ID: <code>CB00</code> (<code>WS-TRANID</code>)</li>
+<li>Program: <code>COBIL00C</code> (<code>WS-PGMNAME</code>)</li>
+<li>Mapset: <code>COBIL00</code></li>
+<li>Map: <code>COBIL0A</code></li>
+</ul>
+<h2 id="dataset-operations-cics">Dataset Operations (CICS)</h2>
+<ul>
+<li>ACCTDAT (Account master)
+<ul>
+<li><code>READ ... UPDATE</code> by <code>ACCT-ID</code> in <code>READ-ACCTDAT-FILE</code></li>
+<li><code>REWRITE</code> updated balance in <code>UPDATE-ACCTDAT-FILE</code></li>
+</ul>
+</li>
+<li>CXACAIX (Account→Card xref)
+<ul>
+<li><code>READ</code> by <code>XREF-ACCT-ID</code> in <code>READ-CXACAIX-FILE</code></li>
+</ul>
+</li>
+<li>TRANSACT (Transaction file)
+<ul>
+<li>Allocate new <code>TRAN-ID</code> via <code>STARTBR</code> + <code>READPREV</code> + <code>ENDBR</code></li>
+<li>Write new transaction with <code>WRITE-TRANSACT-FILE</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="pf-key-handling">PF-key Handling</h2>
+<ul>
+<li>ENTER: <code>PROCESS-ENTER-KEY</code>
+<ul>
+<li>Validates <code>ACTIDIN</code></li>
+<li>Reads account, displays current balance</li>
+<li>Interprets <code>CONFIRM</code> (Y/N/blank/other)</li>
+<li>On Y, posts bill payment transaction and updates account balance</li>
+</ul>
+</li>
+<li>PF3: Return to previous (<code>CDEMO-FROM-PROGRAM</code>) or <code>COMEN01C</code> if none; <code>RETURN-TO-PREV-SCREEN</code></li>
+<li>PF4: Clear fields; <code>CLEAR-CURRENT-SCREEN</code></li>
+<li>Other: Error <code>CCDA-MSG-INVALID-KEY</code></li>
+</ul>
+<h2 id="behavior-and-flow">Behavior and Flow</h2>
+<ul>
+<li>Initial entry
+<ul>
+<li><code>EIBCALEN = 0</code> → go to Sign-on <code>COSGN00C</code> (safety)</li>
+<li>Else, on first-show set cursor to <code>ACTIDIN</code>. If <code>CDEMO-CB00-TRN-SELECTED</code> is set, prefill and process ENTER.</li>
+</ul>
+</li>
+<li>ENTER processing (<code>PROCESS-ENTER-KEY</code>)
+<ul>
+<li>If <code>ACTIDIN</code> empty → error and cursor to <code>ACTIDIN</code></li>
+<li>Move <code>ACTIDIN</code> to <code>ACCT-ID</code> and <code>XREF-ACCT-ID</code></li>
+<li>CONFIRM handling:
+<ul>
+<li><code>Y</code>/<code>y</code> → <code>CONF-PAY-YES</code>, proceed with account read and payment</li>
+<li><code>N</code>/<code>n</code> → clear screen; message state flagged</li>
+<li>Spaces/low-values → read account only (show balance)</li>
+<li>Other → error and cursor to <code>CONFIRM</code></li>
+</ul>
+</li>
+<li>After account read, show <code>ACCT-CURR-BAL</code> in <code>CURBAL</code></li>
+<li>If balance &lt;= 0 → error &quot;You have nothing to pay...&quot;</li>
+<li>If confirmed YES and no errors:
+<ul>
+<li>Read <code>CXACAIX</code></li>
+<li>Get next <code>TRAN-ID</code> (READPREV of <code>TRANSACT</code>)</li>
+<li>Fill transaction:
+<ul>
+<li><code>TRAN-TYPE-CD = '02'</code>, <code>TRAN-CAT-CD = 2</code></li>
+<li><code>TRAN-SOURCE = 'POS TERM'</code></li>
+<li><code>TRAN-DESC = 'BILL PAYMENT - ONLINE'</code></li>
+<li><code>TRAN-AMT = ACCT-CURR-BAL</code></li>
+<li>Merchant: ID <code>999999999</code>, Name <code>BILL PAYMENT</code>, City <code>N/A</code>, Zip <code>N/A</code></li>
+<li>Timestamps via <code>ASKTIME</code> + <code>FORMATTIME</code></li>
+</ul>
+</li>
+<li><code>WRITE TRANSACT</code>, then <code>REWRITE ACCTDAT</code> with reduced balance</li>
+<li>On success, initialize fields and show green success message with new Transaction ID</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ui-elements-from-appbmscobil00bms">UI Elements (from <code>app/bms/COBIL00.bms</code>)</h2>
+<ul>
+<li>Header
+<ul>
+<li><code>TRNNAME</code> (blue) at (1,7), shows <code>CB00</code></li>
+<li><code>PGMNAME</code> (blue) at (2,7), shows <code>COBIL00C</code></li>
+<li><code>CURDATE</code>/<code>CURTIME</code> (blue) at (1,71)/(2,71)</li>
+<li><code>TITLE01</code>/<code>TITLE02</code> (yellow) titles</li>
+</ul>
+</li>
+<li>Body
+<ul>
+<li>Title: &quot;Bill Payment&quot; centered at (4,35), bright neutral</li>
+<li>Label: &quot;Enter Acct ID:&quot; (green) at (6,6)</li>
+<li>Input: <code>ACTIDIN</code> length 11, green, underline, unprotected at (6,21)</li>
+<li>Separator line at (8,6)</li>
+<li>Label: &quot;Your current balance is:&quot; (turquoise) at (11,6)</li>
+<li>Field: <code>CURBAL</code> length 14 at (11,32)</li>
+<li>Prompt: &quot;Do you want to pay your balance now. Please confirm:&quot; (turquoise) at (15,6)</li>
+<li>Input: <code>CONFIRM</code> length 1, green, underline, unprotected at (15,60) with literal <code>(Y/N)</code> at (15,63)</li>
+</ul>
+</li>
+<li>Messages
+<ul>
+<li><code>ERRMSG</code> bright red at (23,1) for errors/success</li>
+</ul>
+</li>
+<li>Footer keys
+<ul>
+<li>Literal at (24,1): <code>ENTER=Continue  F3=Back  F4=Clear</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="key-paragraphs-from-appcblcobil00ccbl">Key Paragraphs (from <code>app/cbl/COBIL00C.cbl</code>)</h2>
+<ul>
+<li><code>MAIN-PARA</code></li>
+<li><code>PROCESS-ENTER-KEY</code></li>
+<li><code>SEND-BILLPAY-SCREEN</code></li>
+<li><code>RECEIVE-BILLPAY-SCREEN</code></li>
+<li><code>READ-ACCTDAT-FILE</code> / <code>UPDATE-ACCTDAT-FILE</code></li>
+<li><code>READ-CXACAIX-FILE</code></li>
+<li><code>STARTBR-TRANSACT-FILE</code> / <code>READPREV-TRANSACT-FILE</code> / <code>ENDBR-TRANSACT-FILE</code></li>
+<li><code>WRITE-TRANSACT-FILE</code></li>
+<li><code>CLEAR-CURRENT-SCREEN</code> / <code>INITIALIZE-ALL-FIELDS</code></li>
+<li><code>RETURN-TO-PREV-SCREEN</code></li>
+</ul>
+<h2 id="notable-messages">Notable Messages</h2>
+<ul>
+<li>&quot;Acct ID can NOT be empty...&quot;</li>
+<li>&quot;Account ID NOT found...&quot;</li>
+<li>&quot;Unable to lookup Account...&quot;</li>
+<li>&quot;Unable to Update Account...&quot;</li>
+<li>&quot;Unable to lookup XREF AIX file...&quot;</li>
+<li>&quot;Transaction ID NOT found...&quot; (on STARTBR errors)</li>
+<li>&quot;Unable to lookup Transaction...&quot;</li>
+<li>&quot;You have nothing to pay...&quot;</li>
+<li>&quot;Confirm to make a bill payment...&quot;</li>
+<li>&quot;Invalid value. Valid values are (Y/N)...&quot;</li>
+<li>Success (green): &quot;Payment successful. Your Transaction ID is <id>.&quot;</li>
+<li>Invalid PF-key: copybook <code>CCDA-MSG-INVALID-KEY</code></li>
+</ul>
+<h2 id="related-screens">Related Screens</h2>
+<ul>
+<li>Transaction List: <a href="./COTRN00.md">COTRN00.md</a></li>
+<li>Transaction View: <a href="./COTRN01.md">COTRN01.md</a></li>
+<li>Transaction Add: <a href="./COTRN02.md">COTRN02.md</a></li>
+<li>Main Menu: <a href="./COMEN01.md">COMEN01.md</a></li>
+</ul>
+
+</body>
+</html>
